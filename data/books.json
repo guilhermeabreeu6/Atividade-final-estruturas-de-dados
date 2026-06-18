@@ -1,0 +1,14 @@
+[
+    {
+        "book_id": 5,
+        "title": "Diario de um cafajeste",
+        "author": "Ryan sp",
+        "year": 2025
+    },
+    {
+        "book_id": 10,
+        "title": "Clean Code",
+        "author": "Robert Martin",
+        "year": 2008
+    }
+]

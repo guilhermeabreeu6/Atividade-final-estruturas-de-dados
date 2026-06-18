@@ -14,7 +14,12 @@ class Book:
 
     def __str__(self) -> str:
         # Retorna uma representação amigável do livro para exibir no menu.
-        return f"ID: {self.book_id} | Title: {self.title} | Author: {self.author} | Year: {self.year}"
+        return (
+            f"ID: {self.book_id} | "
+            f"Title: {self.title} | "
+            f"Author: {self.author} | "
+            f"Year: {self.year}"
+        )
 
     def __lt__(self, other) -> bool:
         # Permite comparar livros usando o ID.
@@ -27,3 +32,22 @@ class Book:
     def __eq__(self, other) -> bool:
         # Dois livros são considerados iguais quando possuem o mesmo ID.
         return self.book_id == other.book_id
+
+    def to_dict(self) -> dict:
+        # Converte o livro para dicionário para salvar em arquivo JSON.
+        return {
+            "book_id": self.book_id,
+            "title": self.title,
+            "author": self.author,
+            "year": self.year
+        }
+
+    @staticmethod
+    def from_dict(data: dict):
+        # Cria um objeto Book a partir dos dados lidos do arquivo JSON.
+        return Book(
+            data["book_id"],
+            data["title"],
+            data["author"],
+            data["year"]
+        )
